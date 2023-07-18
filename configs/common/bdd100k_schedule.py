@@ -52,10 +52,10 @@ def default_coco_scheduler(epochs=50, decay_epochs=40, warmup_epochs=0):
     Returns:
         DictConfig: configs that define the multiplier for LR during training
     """
-    # total number of iterations assuming 16 batch size, using 120000/8=15000
-    total_steps_16bs = epochs * 15000
-    decay_steps = decay_epochs * 15000
-    warmup_steps = warmup_epochs * 15000
+    # total number of iterations assuming 16 batch size, using 70000/8=8750
+    total_steps_16bs = epochs * 8750
+    decay_steps = decay_epochs * 8750
+    warmup_steps = warmup_epochs * 8750
     scheduler = L(MultiStepParamScheduler)(
         values=[1.0, 0.1],
         milestones=[decay_steps, total_steps_16bs],
